@@ -37,16 +37,26 @@ export default function reducer(state = initialState, action) {
         },
       };
     }
-    // case "story/add": {
-    //   return {
-    //     ...state,
-    //     payload: {
-    //       ...state.payload,
-    //       stories: [...state.payload.stories, action.payload],
-    //     },
-    //   };
-    // }
-
+    case "story/add": {
+      return {
+        ...state,
+        me: { ...state.me, stories: [action.payload, ...state.me.stories] },
+      };
+    }
+    case "space/edit": {
+      console.log("what is action payload", action.payload);
+      return {
+        ...state,
+        me: {
+          ...state.me,
+          title: action.payload.title,
+          description: action.payload.description,
+          backgroundColor: action.payload.backgroundColor,
+          color: action.payload.color,
+          stories: [...state.me.stories],
+        },
+      };
+    }
     default: {
       return { ...state };
     }

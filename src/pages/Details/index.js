@@ -39,7 +39,11 @@ export default function Details() {
               >
                 <h4>{space.name}</h4>
                 <p>{space.content}</p>
-                <img src={space.imageUrl} alt={space.name} />
+                <img
+                  src={space.imageUrl}
+                  alt={space.name}
+                  style={{ width: "700px" }}
+                />
               </div>
             );
           })}
